@@ -26,7 +26,6 @@ function isPangram(paramString, perfectPangramOpt) {
 	console.log(alphaRray);
 
 	// Compare each letter in string array to alphabet array
-
 	for (let i = 0; i < stringArray.length; i++) {
 		let unique = false;
 		for (let j = 0; j < alphaRray.length; j++) {
