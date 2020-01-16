@@ -4,8 +4,8 @@
  * @return {number}
  */
 function randomize(array) {
-	const randomized = Math.floor(Math.random() * array.length);
-	return array[randomized];
+	const randomize = Math.floor(Math.random() * array.length);
+	return array[randomize];
 }
 
 /**
