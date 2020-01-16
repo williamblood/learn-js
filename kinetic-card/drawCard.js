@@ -1,12 +1,11 @@
 /**
- * Returns a randomized index from input array.
- * @param {array} array 
+ * Returns random element from array.
+ * @param {array} array - input
  * @return {number}
  */
-
-function seed(array) {
-	const randomize = Math.floor(Math.random() * array.length);
-	return randomize;
+function randomize(array) {
+	const randomized = Math.floor(Math.random() * array.length);
+	return array[randomized];
 }
 
 /**
@@ -14,17 +13,12 @@ function seed(array) {
  * akin to a standard 52-card deck.
  * @return {Object} 
  */
-
 function drawCard() {
 	const value = "A2345678910JQK";
 	const suit = [ "clubs", "spades", "hearts", "diamonds" ];
-
-	// Stores the location of a random value and suit
-	const randomValue = value[seed(value)];
-	const randomSuit = suit[seed(suit)];
 	return {
-		value : randomValue,
-		suit  : randomSuit
+		value : randomize(value),
+		suit  : randomize(suit)
 	};
 }
 const card = drawCard();
