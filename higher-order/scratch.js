@@ -43,7 +43,8 @@ const square = base => {
 // Callback methods
 const cats = [ "hans", "elsa", "juniper" ];
 cats.forEach(items => {
-	console.log(items); // Expected: hans, elsa, juniper
+	console.log(items);
+	// Expected: hans, elsa, juniper
 });
 // More examples:
 const books = [
@@ -116,3 +117,63 @@ const movieSearchByInc = movies.find(data => data.includes("Mr."));
 const filterMovies = movies.filter(data => {
 	return data.includes("In"); // expected: Inception, Interstellar
 });
+
+const vals = [ 5, 4, 9, 1, 2 ];
+
+/**
+ * Returns the larger number in an array.
+ * Note: This function mimics the method reduce() to find the max.
+ * @param {array} nums -  collection of numbers to compare.
+ * @param {number} initialValue - if supplied, applies starting value to compare.  
+ */
+function findMax(nums, initialValue = nums[0]) {
+	let max = initialValue;
+	for (let i = 1; i < nums.length; i++) {
+		max = Math.max(max, array[i]);
+	}
+	return max;
+}
+
+// Array manipulation in order from high level to low level:
+
+/**
+ * Returns a single string of numbers by
+ * converting the supplied array.
+ * @param {array} arr -  collection of numbers to be converted.
+ * 
+ */
+function convertArrToStr(arr) {
+	return arr.slice().join("") - "0";
+}
+
+/**
+ * Returns a single string of numbers by
+ * converting the supplied array.
+ * @param {array} arr -  collection of numbers to be converted.
+ * 
+ * @returns {string}
+ */
+function arrToStr(arr) {
+	let str = "";
+	// convert each el to str
+	for (let i = 0; i < arr.length; i++) {
+		str = str + arr[i];
+	}
+	return str;
+	// return as 1 string
+}
+/**
+ * Returns a number by converting the supplied array.
+ * @param {array} arr -  collection of numbers to be converted.
+ * 
+ * @returns {number}
+ */
+function arrToInt(arr) {
+	let str = "";
+	// convert each el to str
+	for (let i = 0; i < arr.length; i++) {
+		str = str + arr[i];
+	}
+	// subtract by first ascii char ("0")
+	return str - "0";
+}
