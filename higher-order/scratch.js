@@ -122,9 +122,10 @@ const vals = [ 5, 4, 9, 1, 2 ];
 
 /**
  * Returns the larger number in an array.
+ * 
  * Note: This function mimics the method reduce() to find the max.
  * @param {array} nums -  collection of numbers to compare.
- * @param {number} initialValue - if supplied, applies starting value to compare.  
+ * @param {number} initialValue - if supplied, becomes starting value to compare. Else, defaults to first element in array.  
  */
 function findMax(nums, initialValue = nums[0]) {
 	let max = initialValue;
@@ -137,7 +138,7 @@ function findMax(nums, initialValue = nums[0]) {
 // Array manipulation in order from high level to low level:
 
 /**
- * Returns a single string of numbers by
+ * Returns a single string by
  * converting the supplied array.
  * @param {array} arr -  collection of numbers to be converted.
  * 
@@ -147,11 +148,10 @@ function convertArrToStr(arr) {
 }
 
 /**
- * Returns a single string of numbers by
+ * Returns a single string by
  * converting the supplied array.
  * @param {array} arr -  collection of numbers to be converted.
  * 
- * @returns {string}
  */
 function arrToStr(arr) {
 	let str = "";
@@ -165,8 +165,6 @@ function arrToStr(arr) {
 /**
  * Returns a number by converting the supplied array.
  * @param {array} arr -  collection of numbers to be converted.
- * 
- * @returns {number}
  */
 function arrToInt(arr) {
 	let str = "";
@@ -177,3 +175,19 @@ function arrToInt(arr) {
 	// subtract by first ascii char ("0")
 	return str - "0";
 }
+
+const votes = [
+	"y",
+	"y",
+	"n",
+	"y",
+	"n",
+	"y",
+	"n",
+	"y",
+	"n",
+	"n",
+	"n",
+	"y",
+	"y"
+];
