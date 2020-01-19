@@ -162,6 +162,7 @@ function arrToStr(arr) {
 	return str;
 	// return as 1 string
 }
+
 /**
  * Returns a number by converting the supplied array.
  * @param {array} arr -  collection of numbers to be converted.
@@ -176,6 +177,7 @@ function arrToInt(arr) {
 	return str - "0";
 }
 
+// reduce() to object
 const votes = [
 	"y",
 	"y",
@@ -192,6 +194,23 @@ const votes = [
 	"y"
 ];
 
-const voteResult = votes.reduce((tally, val) => {
-	console.log(tally, val);
+const test = votes.reduce((tally, val) => {
+	tally[val] ? tally[val]++ : (tally[val] = true);
+	return tally;
 }, {});
+
+// Expected output: { y: 7, n: 6 }
+
+// Variations:
+// const test = votes.reduce((tally, val) => {
+// 	if (tally[val]) tally[val]++;
+// 	else tally[val] = true;
+// 	return tally;
+// }, {});
+
+// const test = votes.reduce((tally, val) => {
+// tally[val] = 1 + (tally[val] || 0)
+// }, {});
+
+// Hint: tally["b"] = 1; // output: { b: 1 }, or { key: value }
+// {} second argument initializes container 'tally' as an object literal
