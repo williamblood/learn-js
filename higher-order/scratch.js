@@ -36,13 +36,13 @@ const calcVolCyl = function(calcAreaCirc, height) {
 let lowerCaseToUpperCase = "string object".toUpperCase();
 
 // Arrow function further simplified
-const square = base => {
+const square = (base) => {
 	base * base;
 };
 
 // Callback methods
 const cats = [ "hans", "elsa", "juniper" ];
-cats.forEach(items => {
+cats.forEach((items) => {
 	console.log(items);
 	// Expected: hans, elsa, juniper
 });
@@ -71,24 +71,24 @@ const books = [
 ];
 
 const display = () => {
-	books.forEach(data => {
+	books.forEach((data) => {
 		console.log(data.title);
 	});
 };
 
-const titles = books.map(data => data.title);
+const titles = books.map((data) => data.title);
 
-const spaceKitties = cats.map(cat =>
+const spaceKitties = cats.map((cat) =>
 	cat.toUpperCase().split("").join(" ")
 );
 
 // double every num and map to a new array
 const nums = [ 1, 2, 3, 4, 5, 6, 7, 8 ];
-const doubled = nums.map(n => n * 2);
+const doubled = nums.map((n) => n * 2);
 
 // check if even/odd and return as obj
 
-const evenOrOdd = nums.map(n => {
+const evenOrOdd = nums.map((n) => {
 	return {
 		original : n,
 		doubled  : n * 2,
@@ -109,12 +109,12 @@ let movies = [
 ];
 // search for 1 movie, first occurence
 const movieSearchByIdx = movies.find(
-	data => data.indexOf("Deeds") !== -1
+	(data) => data.indexOf("Deeds") !== -1
 );
-const movieSearchByInc = movies.find(data => data.includes("Mr."));
+const movieSearchByInc = movies.find((data) => data.includes("Mr."));
 
 // search, returns all occurences
-const filterMovies = movies.filter(data => {
+const filterMovies = movies.filter((data) => {
 	return data.includes("In"); // expected: Inception, Interstellar
 });
 
@@ -191,3 +191,7 @@ const votes = [
 	"y",
 	"y"
 ];
+
+const voteResult = votes.reduce((tally, val) => {
+	console.log(tally, val);
+}, {});
