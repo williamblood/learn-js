@@ -47,26 +47,67 @@ cats.forEach((items) => {
 	// Expected: hans, elsa, juniper
 });
 // More examples:
+
 const books = [
 	{
 		title   : "Good Omens",
 		authors : [ "Terry Pratchett", "Neil Gaiman" ],
-		rating  : 4.25
+		rating  : 4.25,
+		genres  : [ "fiction", "fantasy" ]
+	},
+	{
+		title   : "Changing My Mind",
+		authors : [ "Zadie Smith" ],
+		rating  : 3.83,
+		genres  : [ "nonfiction", "essays" ]
 	},
 	{
 		title   : "Bone: The Complete Edition",
 		authors : [ "Jeff Smith" ],
-		rating  : 4.42
+		rating  : 4.42,
+		genres  : [ "fiction", "graphic novel", "fantasy" ]
 	},
 	{
 		title   : "American Gods",
 		authors : [ "Neil Gaiman" ],
-		rating  : 4.11
+		rating  : 4.11,
+		genres  : [ "fiction", "fantasy" ]
 	},
 	{
 		title   : "A Gentleman in Moscow",
 		authors : [ "Amor Towles" ],
-		rating  : 4.36
+		rating  : 4.36,
+		genres  : [ "fiction", "historical fiction" ]
+	},
+	{
+		title   : "The Name of the Wind",
+		authors : [ "Patrick Rothfuss" ],
+		rating  : 4.54,
+		genres  : [ "fiction", "fantasy" ]
+	},
+	{
+		title   : "The Overstory",
+		authors : [ "Richard Powers" ],
+		rating  : 4.19,
+		genres  : [ "fiction", "short stories" ]
+	},
+	{
+		title   : "A Truly Horrible Book",
+		authors : [ "Xavier Time" ],
+		rating  : 2.18,
+		genres  : [ "fiction", "garbage" ]
+	},
+	{
+		title   : "The Way of Kings",
+		authors : [ "Brandon Sanderson" ],
+		rating  : 4.65,
+		genres  : [ "fantasy", "epic" ]
+	},
+	{
+		title   : "Lord of the flies",
+		authors : [ "William Golding" ],
+		rating  : 3.67,
+		genres  : [ "fiction" ]
 	}
 ];
 
@@ -82,6 +123,7 @@ const spaceKitties = cats.map((cat) =>
 	cat.toUpperCase().split("").join(" ")
 );
 
+/* map() */
 // double every num and map to a new array
 const nums = [ 1, 2, 3, 4, 5, 6, 7, 8 ];
 const doubled = nums.map((n) => n * 2);
@@ -96,7 +138,7 @@ const evenOrOdd = nums.map((n) => {
 	};
 });
 
-//
+/* find(), filter() */
 
 let movies = [
 	"The Fantastic Mr. Fox",
@@ -176,41 +218,3 @@ function arrToInt(arr) {
 	// subtract by first ascii char ("0")
 	return str - "0";
 }
-
-// reduce() to object
-const votes = [
-	"y",
-	"y",
-	"n",
-	"y",
-	"n",
-	"y",
-	"n",
-	"y",
-	"n",
-	"n",
-	"n",
-	"y",
-	"y"
-];
-
-const test = votes.reduce((tally, val) => {
-	tally[val] ? tally[val]++ : (tally[val] = true);
-	return tally;
-}, {});
-
-// Expected output: { y: 7, n: 6 }
-
-// Variations:
-// const test = votes.reduce((tally, val) => {
-// 	if (tally[val]) tally[val]++;
-// 	else tally[val] = true;
-// 	return tally;
-// }, {});
-
-// const test = votes.reduce((tally, val) => {
-// tally[val] = 1 + (tally[val] || 0)
-// }, {});
-
-// Hint: tally["b"] = 1; // output: { b: 1 }, or { key: value }
-// {} second argument initializes container 'tally' as an object literal
