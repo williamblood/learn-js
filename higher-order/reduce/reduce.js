@@ -113,19 +113,17 @@ const twoAndThreeStarBooks = books.reduce(
 );
 
 // Sort themselves by their own scores
-const twoAndThreeStarBooks2 = books.reduce(
-	(booksByRating, book) => {
-		const rating = Math.floor(book.rating);
-		if (booksByRating[rating] === undefined)
-			booksByRating[rating] = [];
-		booksByRating[rating].push(book);
-		return booksByRating;
-	},
-	{ 2: [], 3: [], 4: [] }
-);
-const complicatedVersion = books.reduce((groupedBooks, book) => {
-	const key = Math.floor(book.rating);
-	if (groupedBooks[key] === undefined) groupedBooks[key] = [];
-	groupedBooks[key].push(book);
-	return groupedBooks;
+// Hint: sacrifice readability for shorter code --> if (!groupedBooks[key]) {...};
+const complicatedVersion = books.reduce((booksByRating, book) => {
+	const rating = Math.floor(book.rating);
+	if (booksByRating[rating] === undefined)
+		booksByRating[rating] = [];
+	booksByRating[rating].push(book);
+	return booksByRating;
 }, {});
+// breakdown:
+// initialze accumulator (list of books) as empty obj literal
+// reduce rating to whole num
+// create category based on its own rating if it does not exist yet
+// push itself into the collection of books that it previously made
+// return the collection of books
