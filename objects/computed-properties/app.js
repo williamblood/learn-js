@@ -17,10 +17,10 @@ const players = {
  * @param {*} value - Contents.
  */
 const addProperty = (object, key, value) => {
-	return (object = {
+	return {
 		...object,
 		[key] : value
-	});
+	};
 };
 
 const updatedPlayers = addProperty(players, "Me", "William Blood");
