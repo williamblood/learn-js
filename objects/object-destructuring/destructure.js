@@ -11,11 +11,14 @@ const pegasusObject = {
 	fullName() {
 		const { first, last } = this;
 		console.log(first, last);
-	}
+	},
 	// WITHOUT DESTRUCTURING "this"
 	// fullName() {
 	// 	console.log(this.first, this.last);
 	// }
+	printBio() {
+		this.fullName();
+	}
 };
 
 const { first, last, ...misc } = pegasusObject;
