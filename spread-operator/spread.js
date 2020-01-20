@@ -7,11 +7,14 @@ nums = {
 console.log(nums);
 
 const sumExample = function(x, y, z) {
-	console.log(arguments[0]);
+	console.log(`Selecting first arg in param: ${arguments[0]}`);
 	return x + y + z;
 };
 console.log(sum(4, 20, 0));
 
+//  Infinite paramater algorithm (Legacy)
+// Note: arguments local var must be converted to arr to use arr methods
+// else limited manipulation with an object
 function sum() {
 	const argumentsToArray = [ ...arguments ];
 	return argumentsToArray.reduce((container, element) => {
@@ -27,6 +30,6 @@ function sumRest(...numbers) {
 		return container + element;
 	});
 }
-// Rest
+// Shorter version
 const mult = (...numbers) =>
 	numbers.reduce((total, val) => total * val);
