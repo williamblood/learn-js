@@ -1,3 +1,29 @@
+/* New Syntax */
+
+// SHORTHAND (use this)
+const auth = {
+	username : "Bot",
+	login() {
+		console.log("Logged in");
+	},
+	logout() {
+		console.log(`Good bye, ${this.username}`);
+	}
+};
+
+// explicit ()
+const auth2 = {
+	username : "Bot",
+	login    : function() {
+		console.log(`Logged in`);
+	},
+	logout   : function() {
+		console.log(`Good bye, ${this.username}`);
+	}
+};
+
+/* Legacy */
+
 /**
  * Returns a random element from an array.
  * @param {array} array - input
