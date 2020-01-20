@@ -23,7 +23,16 @@ const addProperty = (object, key, value) => {
 	};
 };
 
+// "One-liner"
+// Note: When utilizing implicit return,
+// add parens () to arrow function bodies on top of object literal braces {}
+const addProp = (object, key, value) => ({
+	...object,
+	[key] : value
+});
+
 const updatedPlayers = addProperty(players, "Me", "William Blood");
+const updatedPlayers2 = addProp(updatedPlayers, "Myself", "I");
 // expected output : {1: "one", President: "Maximillion Pegasus", Contestant: "Yugi Moto", Me: "William Blood"}
 
 /* (Legacy) Dynamic Keys*/
