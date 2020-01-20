@@ -63,6 +63,39 @@ const books = [
 	}
 ];
 
+// Sorted books based by ratings
+// Easy and quick method
+const twoAndThreeStarBooks = books.reduce(
+	(booksByRating, book) => {
+		if (Math.floor(book.rating) === 2) {
+			booksByRating[2].push(book);
+		} else if (Math.floor(book.rating) === 3) {
+			booksByRating[3].push(book);
+		} else if (Math.floor(book.rating) === 4)
+			booksByRating[4].push(book);
+		return booksByRating;
+	},
+	{ 2: [], 3: [], 4: [] }
+);
+
+// Sort themselves by their own scores
+// May also sacrifice readability for shorter code --> if (!groupedBooks[key]) {...};
+const sortedByRatings = books.reduce((booksByRating, book) => {
+	const rating = Math.floor(book.rating);
+	if (booksByRating[rating] === undefined)
+		booksByRating[rating] = [];
+	booksByRating[rating].push(book);
+	return booksByRating;
+}, {});
+// breakdown:
+// initialze accumulator (list of books) as empty obj literal
+// reduce rating to whole num
+// create category based on its own rating if it does not exist yet
+// push itself into the collection of books that it previously made
+// return the collection of books
+
+/* tallying */
+
 const votes = [
 	"y",
 	"y",
@@ -98,32 +131,3 @@ const tallyVotes1 = votes.reduce((tally, val) => {
 
 // Hint: tally["b"] = 1; // output: { b: 1 }, or { key: value }
 // {} second argument initializes container 'tally' as an object literal
-// Sorted  from easiest to most difficult
-const twoAndThreeStarBooks = books.reduce(
-	(booksByRating, book) => {
-		if (Math.floor(book.rating) === 2) {
-			booksByRating[2].push(book);
-		} else if (Math.floor(book.rating) === 3) {
-			booksByRating[3].push(book);
-		} else if (Math.floor(book.rating) === 4)
-			booksByRating[4].push(book);
-		return booksByRating;
-	},
-	{ 2: [], 3: [], 4: [] }
-);
-
-// Sort themselves by their own scores
-// Hint: sacrifice readability for shorter code --> if (!groupedBooks[key]) {...};
-const complicatedVersion = books.reduce((booksByRating, book) => {
-	const rating = Math.floor(book.rating);
-	if (booksByRating[rating] === undefined)
-		booksByRating[rating] = [];
-	booksByRating[rating].push(book);
-	return booksByRating;
-}, {});
-// breakdown:
-// initialze accumulator (list of books) as empty obj literal
-// reduce rating to whole num
-// create category based on its own rating if it does not exist yet
-// push itself into the collection of books that it previously made
-// return the collection of books
