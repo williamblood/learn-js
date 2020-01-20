@@ -9,7 +9,7 @@ const pegasusObject = {
 };
 
 const { first, last, ...misc } = pegasusObject;
-// Rename
+// Rename key with value still inside, unchanged
 const { first: x, last: y } = pegasusObject;
 
 const pegasusArray = [
@@ -43,7 +43,31 @@ const results = [
 		country : "United States"
 	}
 ];
-
+// Rename key "first" to var "winner"
 const [ { first: winner }, , { country: USA } ] = results;
 
-// Destruct on fuction
+// Destructure argument:
+// Unpacks at parameter list
+function print2({ first, last, country }) {
+	console.log(`${last}, ${first} - ${country}`);
+}
+
+// Unpacks in function scope
+/**
+ * Prints the full name of a person and their country of origin. 
+ * @param {object} person 
+ */
+function print(person) {
+	const { first, last, country } = person;
+	console.log(`${last}, ${first} - ${country}`);
+}
+
+// Practical application of destructuring:
+const response = [ "HTTP/1.1", "200 OK", "application/json" ];
+
+function parseRes([ protocol, status, type ]) {
+	status.includes("200")
+		? console.log(`ACCESS GRANTED`)
+		: console.error(`Error: ${status}`);
+}
+// expected output: ACCESS GRANTED
