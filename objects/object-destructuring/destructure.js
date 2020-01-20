@@ -1,11 +1,17 @@
+/* this keyword may also be destructured */
+
 const pegasusObject = {
-	first   : "Maximillion",
-	last    : "Pegasus",
-	country : "United States",
-	title   : [
+	first    : "Maximillion",
+	last     : "Pegasus",
+	country  : "United States",
+	title    : [
 		"President of Industrial Illusions",
 		"Inventor of Duel Monsters"
-	]
+	],
+	fullName() {
+		const { first, last } = this;
+		console.log(first, last);
+	}
 };
 
 const { first, last, ...misc } = pegasusObject;

@@ -1,5 +1,4 @@
 /* New Syntax */
-
 // SHORTHAND (use this)
 const auth = {
 	username : "Bot",
