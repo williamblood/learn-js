@@ -12,6 +12,10 @@ const pegasusObject = {
 		const { first, last } = this;
 		console.log(first, last);
 	}
+	// WITHOUT DESTRUCTURING "this"
+	// fullName() {
+	// 	console.log(this.first, this.last);
+	// }
 };
 
 const { first, last, ...misc } = pegasusObject;
