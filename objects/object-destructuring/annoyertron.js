@@ -18,15 +18,15 @@ const annoyerTron = {
 	start() {
 		this.intervalId = setInterval(() => {
 			console.log(this.randomPhrase());
-		}, 500);
+		}, 2000);
 		console.log(this);
 	},
 	stop() {
 		clearInterval(this.intervalId);
 	}
 };
-// Note: arrow functions does not change 'this' scope
-// breakdown:
+// Note: arrow functions do not change 'this' scope or
+// get their own 'this'
 
 /* Legacy */
 // start() {
