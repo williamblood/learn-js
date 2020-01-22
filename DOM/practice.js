@@ -32,3 +32,15 @@ arrAllImages.forEach((img) => {
 		typeof img === "object" ? "object found" : "not an object"
 	);
 });
+
+/* Other common methods and properties */
+
+let emailHTML = document.querySelector("input[type='email']");
+let attributeTypeContents = emailHTML.getAttribute("type");
+// change attribute type from email to text
+attributeTypeContents = emailHTML.setAttribute("type", "text");
+
+let parentEmail = emailHTML.parentElement; // returns parent HTML obj
+let child = emailHTML.children; // returns array
+let nextSib = emailHTML.nextElementSibling;
+let prevSib = emailHTML.previousElementSibling;
