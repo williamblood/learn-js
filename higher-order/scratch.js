@@ -41,9 +41,15 @@ const square = (base) => {
 };
 
 // Callback methods
+/* Animal Pound Inventory - Data */
 const cats = [ "hans", "elsa", "juniper" ];
-cats.forEach((items) => {
-	console.log(items);
+const dogs = [ "bruce", "max" ];
+const deceased = cats.forEach((cat, catSlot, cats) => {
+	console.log(`cat slot : ${catSlot}`);
+	console.log(`cat : ${cat}`);
+	console.log(`cats : ${cats}`);
+	console.log(`terminating : ${cats.pop()}`);
+
 	// Expected: hans, elsa, juniper
 });
 // More examples:
