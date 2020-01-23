@@ -57,5 +57,19 @@ h5CSS = getComputedStyle(h5);
 console.log(h5CSS.color);
 // "rgb(255, 255, 255)"
 // Note: getComputedStyle is read-only, access to prop CSS
-h5.style.color = "black";
-// inline style
+h5.style.color = "";
+// inline style, reset color
+
+/* How to create elements and them to the DOM*/
+
+let firsth2 = document.querySelector("h2");
+// undefined
+const newh2 = document.createElement("h2");
+// undefined
+newh2.innerText = "Professional";
+// "Professional"
+firsth2.appendChild(newh2);
+/* <h2>​Professional​</h2>​ */
+newh2.classList;
+// DOMTokenList [value: ""]length: 0value: ""__proto__: DOMTokenListlength: (...)value: (...)item: ƒ item()contains: ƒ contains()add: ƒ add()remove: ƒ remove()toggle: ƒ toggle()replace: ƒ replace()supports: ƒ supports()toString: ƒ toString()entries: ƒ entries()forEach: ƒ forEach()keys: ƒ keys()values: ƒ values()constructor: ƒ DOMTokenList()Symbol(Symbol.toStringTag): "DOMTokenList"Symbol(Symbol.iterator): ƒ values()get length: ƒ length()get value: ƒ value()set value: ƒ value()__proto__: Object
+newh2.classList.add("h4");
