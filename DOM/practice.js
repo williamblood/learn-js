@@ -44,3 +44,18 @@ let parentEmail = emailHTML.parentElement; // returns parent HTML obj
 let child = emailHTML.children; // returns array
 let nextSib = emailHTML.nextElementSibling;
 let prevSib = emailHTML.previousElementSibling;
+
+// Style the font color
+let h5 = document.querySelector("h5");
+// <h5>​PRAGMATISM​</h5>​
+let h5CSS = getComputedStyle(h5);
+h5.style.color = "white";
+// "white"
+console.log(h5CSS.backgroundColor);
+// "rgba(0, 0, 0, 0)"
+h5CSS = getComputedStyle(h5);
+console.log(h5CSS.color);
+// "rgb(255, 255, 255)"
+// Note: getComputedStyle is read-only, access to prop CSS
+h5.style.color = "black";
+// inline style
