@@ -70,7 +70,7 @@ const newH2 = document.createElement("h2");
 newH2.innerText = "Professional";
 // "Professional"
 
-parentIntro.appendChild(newH2);
+// parentIntro.appendChild(newH2);
 // exptected: appends to last element
 parentIntro.insertBefore(newH2, firstH5);
 // exptected: appends new h2 to the top
