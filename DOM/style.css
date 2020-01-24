@@ -83,7 +83,10 @@ body {
 h1 {
 	font-family: "Vibes", sans-serif;
 }
-
+.newH2 {
+	font-size: var(--header2);
+	color: red;
+}
 /* Nav with Hero */
 
 .main-head {
@@ -234,10 +237,6 @@ nav {
 	}
 	.nav-open {
 		transform: translateX(-50%);
-	}
-	.static-x .burger {
-		position: absolute;
-		top: 0;
 	}
 	.toggle .line1 {
 		transform: rotateZ(-45deg) translateY(500%) translateX(-37%);

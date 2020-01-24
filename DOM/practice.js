@@ -60,16 +60,21 @@ console.log(h5CSS.color);
 h5.style.color = "";
 // inline style, reset color
 
-/* How to create elements and them to the DOM*/
+/* How to create elements and add them to the DOM*/
 
-let firsth2 = document.querySelector("h2");
-// undefined
-const newh2 = document.createElement("h2");
-// undefined
-newh2.innerText = "Professional";
+let parentIntro = document.querySelector(".hero-intro");
+let firstH5 = document.querySelector("h2");
+
+const newH2 = document.createElement("h2");
+
+newH2.innerText = "Professional";
 // "Professional"
-firsth2.appendChild(newh2);
+
+parentIntro.appendChild(newH2);
+// exptected: appends to last element
+parentIntro.insertBefore(newH2, firstH5);
+// exptected: appends new h2 to the top
+
 /* <h2>​Professional​</h2>​ */
-newh2.classList;
-// DOMTokenList [value: ""]length: 0value: ""__proto__: DOMTokenListlength: (...)value: (...)item: ƒ item()contains: ƒ contains()add: ƒ add()remove: ƒ remove()toggle: ƒ toggle()replace: ƒ replace()supports: ƒ supports()toString: ƒ toString()entries: ƒ entries()forEach: ƒ forEach()keys: ƒ keys()values: ƒ values()constructor: ƒ DOMTokenList()Symbol(Symbol.toStringTag): "DOMTokenList"Symbol(Symbol.iterator): ƒ values()get length: ƒ length()get value: ƒ value()set value: ƒ value()__proto__: Object
-newh2.classList.add("h4");
+newH2.classList.add("newH2");
+console.dir(parentIntro);
