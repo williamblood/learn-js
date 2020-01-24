@@ -60,7 +60,7 @@ console.log(h5CSS.color);
 h5.style.color = "";
 // inline style, reset color
 
-/* How to create elements and add them to the DOM*/
+/* How to create elements and add/remove them from the DOM*/
 
 let parentIntro = document.querySelector(".hero-intro");
 let firstH5 = document.querySelector("h2");
@@ -70,11 +70,24 @@ const newH2 = document.createElement("h2");
 newH2.innerText = "Professional";
 // "Professional"
 
-// parentIntro.appendChild(newH2);
-// exptected: appends to last element
-parentIntro.insertBefore(newH2, firstH5);
-// exptected: appends new h2 to the top
+// appends to bottom/last
+parentIntro.append(newH2);
+// appends to top/first/before
+parentIntro.prepend(newH2);
 
-/* <h2>​Professional​</h2>​ */
-newH2.classList.add("newH2");
-console.dir(parentIntro);
+// // Other methods to add
+
+// parentIntro.appendChild(newH2);
+// // exptected: appends to last element
+// parentIntro.insertBefore(newH2, firstH5);
+// // exptected: appends new h2 to the top
+
+// parentIntro.insertAdjacentElement("afterbegin", newH2);
+// // parentIntro.insertAdjacentElement("beforeend", newH2);
+// /* <h2>​Professional​</h2>​ */
+// newH2.classList.add("newH2");
+
+// const h2Link = document.createElement("a");
+// h2Link.href = "https://youtu.be/s9odzlxOpP0";
+// h2Link.innerText = "professional".toUpperCase();
+// newH2.insertAdjacentElement("afterend", h2Link);
