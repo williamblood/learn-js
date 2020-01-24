@@ -66,16 +66,18 @@ let parentIntro = document.querySelector(".hero-intro");
 let firstH5 = document.querySelector("h2");
 
 const newH2 = document.createElement("h2");
+const newH2v2 = document.createElement("h2");
 
 newH2.innerText = "Professional";
+newH2v2.innerText = "Photographer";
 // "Professional"
 
 // appends to bottom/last
-parentIntro.append(newH2);
+parentIntro.append(newH2, newH2v2);
 // appends to top/first/before
-parentIntro.prepend(newH2);
+parentIntro.prepend(newH2, newH2v2);
 
-// // Other methods to add
+// // Other methods to add one element
 
 // parentIntro.appendChild(newH2);
 // // exptected: appends to last element
@@ -91,3 +93,11 @@ parentIntro.prepend(newH2);
 // h2Link.href = "https://youtu.be/s9odzlxOpP0";
 // h2Link.innerText = "professional".toUpperCase();
 // newH2.insertAdjacentElement("afterend", h2Link);
+
+const allH2 = document.querySelectorAll("h2");
+const firstH2 = allH2[0];
+firstH2.remove(); // parent unnecessary
+// allH2.removeChild(firstH2); parent required
+
+// Removes all h2's
+// allH2.forEach((element) => { element.remove()}
