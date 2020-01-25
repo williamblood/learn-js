@@ -87,25 +87,23 @@ const warriorsGames = [
 
 warriorsGames.forEach((game, gameNum) => {
 	const gameNumHeading = document.createElement("h3");
-	gameNumHeading.innerText = `Game ${gameNum}`;
-	const homeVs = document.createElement("ul");
-	const awayT = game["awayTeam"].team;
-	const homeT = game["homeTeam"].team;
-	homeVs.innerText = `Home | ${homeT} vs ${awayT} | Away`;
+	gameNumHeading.innerText = `Game ${gameNum + 1}`;
+	const homeVsAway = document.createElement("ul");
+	const { awayTeam, homeTeam } = game;
+	// const awayT = game["awayTeam"].team;
+	// const homeT = game["homeTeam"].team;
+	homeVsAway.innerText = `Home | ${homeTeam.team} vs ${awayTeam.team} | Away`;
 
-	let winnerName = document.createElement("li");
-	let loserName = document.createElement("li");
-	let winnerPoints = 0,
-		loserPoints = 0;
-	let winningTeam = awayT;
-	if (winningTeam === "Golden State" && winningTeam.isWinner) {
-		winnerName.innerText = winningTeam;
-		winnerPoints = winningTeam.points;
-	} else {
-		loserName.innerText = winningTeam;
-		loserPoints = winningTeam.points;
-	}
-	let winner = document.createElement("ul");
-	winner.innerHTML = `Winner: ${winningTeam} <b>${winnerPoints}</b> : ${loserPoints}`;
-	document.body.append(gameNumHeading, homeVs, winner);
+	const scores = document.createElement("li");
+	let homePoints = homeTeam.points,
+		awayPoints = awayTeam.points;
+	console.log(
+		`Home points: ${homePoints}, Away Points: ${awayPoints}`
+	);
+	if (homePoints > awayPoints)
+		scores.innerHTML = `<b>${homePoints}</b>-${awayPoints}`;
+	else scores.innerHTML = `${homePoints}-<b>${awayPoints}</b>`;
+
+	homeVsAway.append(scores);
+	document.body.append(gameNumHeading, homeVsAway);
 });
