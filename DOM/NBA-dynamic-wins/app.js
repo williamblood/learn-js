@@ -97,9 +97,6 @@ warriorsGames.forEach((game, gameNum) => {
 	const scores = document.createElement("li");
 	let homePoints = homeTeam.points,
 		awayPoints = awayTeam.points;
-	console.log(
-		`Home points: ${homePoints}, Away Points: ${awayPoints}`
-	);
 	if (homePoints > awayPoints)
 		scores.innerHTML = `<b>${homePoints}</b>-${awayPoints}`;
 	else scores.innerHTML = `${homePoints}-<b>${awayPoints}</b>`;
