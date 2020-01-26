@@ -15,5 +15,15 @@ const moveAfter = (element, pixels, delay) => {
 };
 
 btn.addEventListener("click", () => {
-	moveAfter(btn, 200, 2000);
+	let currentRight = btn.getBoundingClientRect().right;
+	if (currentRight + 200 > window.innerWidth)
+		console.warn(
+			"BOUNDARY REACHED.",
+			`You are about to exceed the boundary by ${200 -
+				currentRight}px.`,
+			`Resetting position to ${currentRight}px.`
+		);
+	console.log(`current pixel count: ${currentRight}`);
+	moveAfter(btn, (currentRight += 200), 2000);
+	console.log(`pixel count after: ${currentRight}`);
 });
