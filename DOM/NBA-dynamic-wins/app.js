@@ -85,6 +85,10 @@ const warriorsGames = [
 	}
 ];
 
+// *******************************************
+// UNREFACTORED - but works
+// *******************************************
+
 warriorsGames.forEach((game, gameNum) => {
 	const gameNumHeading = document.createElement("h3");
 	gameNumHeading.innerText = `Game ${gameNum + 1}`;
@@ -97,13 +101,11 @@ warriorsGames.forEach((game, gameNum) => {
 	homeVsAway.innerText = `Home | ${homeTeam.team} vs ${awayTeam.team} | Away`;
 
 	const scores = document.createElement("li");
+
+	scores.classList.add(warriors.isWinner ? "win" : "loss");
+
 	let homePoints = homeTeam.points,
 		awayPoints = awayTeam.points;
-
-	warriors.isWinner
-		? scores.classList.toggle("win")
-		: scores.classList.toggle("loss");
-
 	if (homePoints > awayPoints) {
 		scores.innerHTML = `<b>${homePoints}</b>-${awayPoints}`;
 	} else {

@@ -27,7 +27,7 @@ for (let img of allImages) {
 
 // convert to array to use array methods
 const arrAllImages = [ ...allImages ];
-arrAllImages.forEach((img) => {
+arrAllImages.forEach(img => {
 	console.log(
 		typeof img === "object" ? "object found" : "not an object"
 	);
@@ -101,3 +101,7 @@ firstH2.remove(); // parent unnecessary
 
 // Removes all h2's
 // allH2.forEach((element) => { element.remove()}
+
+/* Events */
+
+// e.preventDefault();
