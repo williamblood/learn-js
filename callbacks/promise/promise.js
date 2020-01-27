@@ -1,4 +1,3 @@
-//  "/users"
 // edit next line "/users" directory to fetch other pages i.e "/contact"
 const usersURL = "/users";
 
@@ -21,17 +20,24 @@ const get = url => {
 get(usersURL)
 	.then(response => {
 		console.log(`Status code: ${response.status} OK`);
-		console.log("Resolved. Content accessed.");
-		console.log("Your requested data: ", response.requestedData);
-		// Note: Do not pass an array of objects in a template literal ${}
-		// Example:
-		//  console.log(`data: ${response.requestedData}`);
-		// returns [object Object],[object Object],[object Object]
+		response.requestedData.forEach(user => {
+			console.log(
+				`Selecting user named ${user.name} with id of ${user.id}`
+			);
+		});
+		console.log(
+			"Your requested data in bulk: ",
+			response.requestedData
+		);
 	})
 	.catch(response => {
 		console.warn(`There was an error: ${response.status}`);
 	});
 
+// Note: Do not pass an array of objects in a template literal ${}
+// Example:
+//  console.log(`data: ${response.requestedData}`);
+// returns [object Object],[object Object],[object Object]
 // then() runs only if promise is resolved
 // pass in objects in resolve/reject as arguments,
 //  typically with status codes and other properties
