@@ -12,7 +12,7 @@ const get = (url) => {
 			"/users/9"  : {
 				id          : 9,
 				name        : "Billy",
-				age         : 20,
+				age         : 28,
 				location    : "OC",
 				upvotes     : 943819,
 				accountPlan : "gold"
@@ -46,7 +46,7 @@ get(usersURL)
 	.then((response) => {
 		console.log(response.requestedData);
 		const userId = response.requestedData[0].id; // I want the first user, billy
-		get(`/users/${userId}`)
+		get(`/users/${userId}`) // Retrieves private data if ID is known
 			.then((response) => {
 				console.log(response.status);
 				console.log(
@@ -56,7 +56,7 @@ get(usersURL)
 				);
 			})
 			.catch((response) => {
-				console.log(response.status);
+				console.error(response.status);
 			});
 	})
 	.catch((response) => console.error(response.status));
