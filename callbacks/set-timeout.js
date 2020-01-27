@@ -14,7 +14,7 @@ const btn = document.querySelector("button");
 /**
  * Moves any element to the right of the document body. 
  * @param {*} element - target element to move.
- * @param {number} pixels - amount of pixels to element.
+ * @param {number} pixels - amount of pixels to move element by.
  * @param {number} delay - in miliseconds.
  * @param {callbackfn} onFailure - called when element has exceeded client boundary.
  * @param {callbackfn} onSucess - called when element has successfully moved.
