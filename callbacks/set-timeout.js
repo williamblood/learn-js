@@ -1,4 +1,5 @@
 /* Open dev tools to check the call stack and play with breakpoints */
+/* Level 2-3 callbacks */
 const btn = document.querySelector("button");
 
 // Note:
@@ -6,24 +7,42 @@ const btn = document.querySelector("button");
 //  the function is placed on top as the last in the call stack,
 //  allowing any button changes to occur at the end of the delay.
 
-const moveAfter = (element, pixels, delay) => {
-	element.innerText = `Moving in ${delay / 1000} seconds..`;
-	setTimeout(() => {
-		element.style.transform = `translateX(${pixels}px)`;
-		element.innerText = "Move";
-	}, delay);
+// Click and move button, save current position of btn for next click
+// Send user warning if button goes off screen
+// Send user success notification if it moved successfully
+
+/**
+ * Moves any element to the right. 
+ * @param {*} element - target element to move.
+ * @param {number} pixels - amount of pixels to element.
+ * @param {number} delay - in miliseconds.
+ * @param {callbackfn} onFailure - called when element has exceeded client boundary.
+ * @param {callbackfn} onSucess - called when element has successfully moved.
+ */
+
+const moveAfter = (element, pixels, delay, onFailure, onSucess) => {
+	let currentRight = element.getBoundingClientRect().right;
+	const boundary = document.body.getBoundingClientRect().width;
+	if (currentRight + pixels > boundary) {
+		onFailure();
+	} else {
+		element.innerText = `Moving in ${delay / 1000} seconds..`;
+		setTimeout(() => {
+			element.style.transform = `translateX(${(currentRight += pixels)}px)`;
+			element.innerText = "Move";
+			onSucess();
+		}, delay);
+	}
 };
 
 btn.addEventListener("click", () => {
-	let currentRight = btn.getBoundingClientRect().right;
-	if (currentRight + 200 > window.innerWidth)
-		console.warn(
-			"BOUNDARY REACHED.",
-			`You are about to exceed the boundary by ${200 -
-				currentRight}px.`,
-			`Resetting position to ${currentRight}px.`
-		);
-	console.log(`current pixel count: ${currentRight}`);
-	moveAfter(btn, (currentRight += 200), 2000);
-	console.log(`pixel count after: ${currentRight}`);
+	moveAfter(btn, 100, 2000, displayError, () => {
+		console.log(`Moved successfully!`);
+	});
 });
+
+function displayError() {
+	console.warn(
+		"BOUNDARY REACHED.\n You are about to exceed the boundary.\n Stopping."
+	);
+}
