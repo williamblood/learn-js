@@ -16,6 +16,6 @@ myRequest.addEventListener("load", function() {
 myRequest.addEventListener("error", () => {
 	console.error("Request was denied. Try again later.");
 });
-myRequest.open("GET", "https://swapi.co/api/starship13123/");
+myRequest.open("GET", "https://swapi.co/api/starships/"); // edit API link to test error handling
 myRequest.send();
 console.log("Request sent successfully.\nPlease wait...");
