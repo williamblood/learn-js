@@ -7,13 +7,15 @@
 
 const myRequest = new XMLHttpRequest();
 
-myRequest.addEventListener("load", () => {
-	console.log("Loaded successfully");
+myRequest.addEventListener("load", function() {
+	console.log("Loaded.");
+	// "this" becomes the request object with accessor methods
+	console.log(this.responseText);
 });
 
 myRequest.addEventListener("error", () => {
-	console.error("Request was denied");
+	console.error("Request was denied. Try again later.");
 });
-myRequest.open("GET", "https://swapi.co/api/starships/");
+myRequest.open("GET", "https://swapi.co/api/starship13123/");
 myRequest.send();
-console.log("Request sent successfully.");
+console.log("Request sent successfully.\nPlease wait...");
