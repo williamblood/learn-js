@@ -2,7 +2,7 @@
 
 const btn = document.querySelector("button");
 
-const move = (element, pixels, delay) => {
+const moveRight = (element, pixels, delay) => {
 	return new Promise((resolve, reject) => {
 		let currentRight = element.getBoundingClientRect().right;
 		const boundary = document.body.getBoundingClientRect().width;
@@ -20,7 +20,7 @@ const move = (element, pixels, delay) => {
 };
 
 btn.addEventListener("click", () => {
-	move(
+	moveRight(
 		btn,
 		100,
 		2000
