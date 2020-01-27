@@ -12,7 +12,7 @@ const btn = document.querySelector("button");
 // Send user success notification if it moved successfully
 
 /**
- * Moves any element to the right. 
+ * Moves any element to the right of the document body. 
  * @param {*} element - target element to move.
  * @param {number} pixels - amount of pixels to element.
  * @param {number} delay - in miliseconds.
