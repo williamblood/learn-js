@@ -41,9 +41,12 @@ const get = (url) => {
 				"Where we're going, we won't need eyes to see.",
 			"/contact"       : "Pretend this is the contact page!"
 		};
-		const requestedData = pages[url];
-		if (requestedData) resolve({ status: 200, requestedData });
-		else reject({ status: 404 });
+		setTimeout(() => {
+			const requestedData = pages[url];
+			if (requestedData)
+				resolve({ status: 200, requestedData });
+			else reject({ status: 404 });
+		}, 1500);
 	});
 };
 
@@ -56,6 +59,8 @@ get(usersURL)
 	})
 	.then((response) => {
 		const postId = response.requestedData.postId;
+		const name = response.requestedData.name;
+		console.log(`[${name}]`);
 		console.log(
 			response.status,
 			"ID Retreived.\nFetching post ID.."
@@ -67,5 +72,5 @@ get(usersURL)
 		console.log(`Post: ${userPost}`);
 	})
 	.catch((response) => {
-		console.error(response.status);
+		console.error("That ain't it chief.", response.status);
 	});
