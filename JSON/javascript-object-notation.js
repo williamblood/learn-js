@@ -10,7 +10,8 @@ const myRequest = new XMLHttpRequest();
 myRequest.addEventListener("load", function() {
 	console.log("Loaded.");
 	// "this" becomes the request object with accessor methods like "responseText"
-	console.log(this.responseText);
+	const data = JSON.parse(this.responseText);
+	console.log(data);
 });
 
 myRequest.addEventListener("error", () => {
