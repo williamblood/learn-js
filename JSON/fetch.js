@@ -1,23 +1,23 @@
+// Note: Use AXIOS instead to deal with the response status
 fetch("https://swapi.co/api/starships/")
 	.then((response) => {
-		if (!response.ok) {
-			throw new Error(response.status);
-		} else {
-			// Convert the response body readableStream into JSON data
-			response.json().then((data) => {
-				console.log("Here's everything I got back: ", data);
-				const airships = data.results;
-				console.log("I found ships!", airships); // data is now a javascript object
-				airships.forEach((airship) => {
-					if (airship.name.includes("TIE")) {
-						console.log(
-							"Is that a TIE fighter? Check this out!",
-							airship
-						);
-					}
-				});
-			});
-		}
+		if (!response.ok) throw new Error(response.status);
+
+		// Convert the response body readableStream into JSON data
+		return response.json();
+	})
+	.then((data) => {
+		console.log("Here's everything I got back: ", data);
+		const airships = data.results;
+		console.log("I found ships!", airships); // data is now a javascript object
+		airships.forEach((airship) => {
+			if (airship.name.includes("TIE")) {
+				console.log(
+					"Is that a TIE fighter? Check this out!",
+					airship
+				);
+			} else console.log(airship.name);
+		});
 	})
 	.catch((err) => {
 		console.error(err, "Unable to fetch data. Aborting.");
