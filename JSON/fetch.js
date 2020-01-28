@@ -21,11 +21,9 @@ fetch("https://swapi.co/api/starships/")
 				// Note: cannot return fetch() in if() scope
 			} else console.log(airship.name);
 		});
-		console.log(filmURL);
 		return fetch(filmURL);
 	})
 	.then((response) => {
-		console.log(response);
 		if (!response.ok) throw new Error(response.status);
 		return response.json();
 	})
