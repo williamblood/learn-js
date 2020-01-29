@@ -1,4 +1,5 @@
 // Note: AXIOS remains the gold standard, use that instead
+// Todo: Refactor code using AXIOS
 
 const validateAndParseData = (response) => {
 	console.log("Data received. Confirming status...");
