@@ -7,11 +7,15 @@ class Timer {
 		this.start_btn.addEventListener("click", this.start);
 		this.pause_btn.addEventListener("click", this.pause);
 	}
-
-	start() {
-		console.log("Started timer.");
+	start = () => {
+		this.activateStart();
+	};
+	activateStart() {
+		console.log(this);
+		console.log("Timer Started.");
 	}
 	pause() {
+		console.log(this);
 		console.log("Paused timer.");
 	}
 }
