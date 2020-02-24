@@ -24,7 +24,9 @@ class Timer {
 	}
 
 	start = () => {
-		this.onStart();
+		if (this.onStart) {
+			this.onStart();
+		}
 		const currentTime = this.timeRemaining; // grabs input val
 		this.timeRemaining = currentTime; // updates timer
 
@@ -39,10 +41,14 @@ class Timer {
 	tick = () => {
 		if (this.timeRemaining < 1) {
 			this.pause();
-			this.onComplete();
+			if (this.onComplete) {
+				this.onComplete();
+			}
 		} else {
 			this.timeRemaining = this.timeRemaining - 1; // ticks down to 0
-			this.onTick(this.timeRemaining);
+			if (this.onTick) {
+				this.onTick(this.timeRemaining);
+			}
 		}
 	};
 }
