@@ -20,18 +20,18 @@ class Timer {
 	}
 
 	set timeRemaining(newTime) {
-		this.input_dur.value = newTime; // updates html text
+		this.input_dur.value = newTime.toFixed(2); // updates html text
 	}
 
 	start = () => {
 		if (this.onStart) {
-			this.onStart();
+			this.onStart(this.timeRemaining);
 		}
 		const currentTime = this.timeRemaining; // grabs input val
 		this.timeRemaining = currentTime; // updates timer
 
 		this.tick();
-		this.interval = setInterval(this.tick, 1000);
+		this.interval = setInterval(this.tick, 50); // 50ms
 	};
 
 	pause = () => {
@@ -39,13 +39,13 @@ class Timer {
 	};
 
 	tick = () => {
-		if (this.timeRemaining < 1) {
+		if (this.timeRemaining < 0.01) {
 			this.pause();
 			if (this.onComplete) {
 				this.onComplete();
 			}
 		} else {
-			this.timeRemaining = this.timeRemaining - 1; // ticks down to 0
+			this.timeRemaining = this.timeRemaining - 0.05; // ticks down by 0.05 of a second
 			if (this.onTick) {
 				this.onTick(this.timeRemaining);
 			}
